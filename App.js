@@ -1,11 +1,20 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, Text} from 'react-native';
+//import {createStore, combineReducers} from 'redux';
+//import {Provider} from 'react-redux';
 
-const App: () => React$Node = () => {
+//import productsReducer from './store/reducers/products';
+
+// const rootReducer = combineReducers({
+//   products: productsReducer,
+// });
+//const store = createStore(rootReducer);
+
+const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style={{flex: 1}}>
         <Text>Moo</Text>
       </SafeAreaView>
     </>
