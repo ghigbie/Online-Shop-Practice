@@ -1,8 +1,10 @@
-import React from 'react';
-import {SafeAreaView, StatusBar, Text} from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import {View, Text} from 'react-native';
+
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import Products from './screens/shop/ProductsOverviewScreen';
+import ShopNavigator from './navigation/ShopNavigator';
 
 import productsReducer from './store/reducers/products';
 
@@ -14,11 +16,7 @@ const store = createStore(rootReducer);
 const App = () => {
   return (
     <Provider store={store}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{flex: 1}}>
-        <Text>Moo</Text>
-        <Products />
-      </SafeAreaView>
+      <ShopNavigator />
     </Provider>
   );
 };
