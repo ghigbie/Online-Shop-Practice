@@ -1,5 +1,3 @@
-const react = require('react');
-
 import React from 'react';
 import {View, Text, Image, StyleSheet, Button, Dimensions} from 'react-native';
 
@@ -9,8 +7,10 @@ const ProductItem = (
 ) => (
   <View style={styles.container}>
     <Image style={styles.image} source={{uri: image}} />
-    <Text style={styles.title}>{title}</Text>
-    <Text style={styles.price}>${price.toFixed(2)}</Text>
+    <View style={styles.details}>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.price}>${price.toFixed(2)}</Text>
+    </View>
     <View style={styles.buttonRow}>
       <Button title="View Details" onPress={onViewDetail} />
       <Button title="Add to Cart" onPress={onAddToCart} />
@@ -35,6 +35,10 @@ const styles = StyleSheet.create({
     height: '70%',
     width: '100%',
     borderRadius: 12,
+  },
+  details: {
+    alignItems: 'center',
+    height: '16%',
   },
   title: {
     fontSize: 18,
