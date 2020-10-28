@@ -7,8 +7,11 @@ import ProductItem from '../../components/shop/ProductItem';
 const ProductsOverviewScreen = ({navigation}) => {
   const products = useSelector((state) => state.products.availableProducts);
   const onViewDetail = (item) => {
-    console.log('View Detail ', item);
-    navigation.navigate('ProductDetailScreen');
+    console.log('View Detail ', item.id, item.title);
+    navigation.navigate('ProductDetailScreen', {
+      productId: item.id,
+      productTitle: item.title,
+    });
   };
 
   const onAddToCart = (item) => {

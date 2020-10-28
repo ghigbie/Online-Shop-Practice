@@ -25,8 +25,4 @@ ProductsOverviewScreen.navigationOptions = {
   headerTitle: 'All Products',
 };
 
-ProductDetailScreen.navigationOptions = {
-  headerTitle: 'Product Detail',
-};
-
 export default createAppContainer(ProductsNavigator);

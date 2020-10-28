@@ -1,19 +1,26 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {View, Text, Image, StyleSheet, Button, Dimensions} from 'react-native';
+import {useSelector} from 'react-redux';
 import Colors from '../../constants/Colors';
 
-const ProductDetailScreen = ({
-  title,
-  price,
-  image,
-  onViewDetail,
-  onAddToCart,
-  ...props
-}) => (
-  <View style={styles.container}>
-    <Text>Product details</Text>
-  </View>
-);
+const ProductDetailScreen = ({navigation}) => {
+  const productId = navigation.getParam('productId');
+  const {title} = useSelector((state) =>
+    state.products.availableProducts.find((prod) => prod.id === productId),
+  );
+
+  return (
+    <View style={styles.container}>
+      <Text>{title}</Text>
+    </View>
+  );
+};
+
+ProductDetailScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: navData.navigation.getParam('productTitle'),
+  };
+};
 
 const styles = StyleSheet.create({
   container: {
