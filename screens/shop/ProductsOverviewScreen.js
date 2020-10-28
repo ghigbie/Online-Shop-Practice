@@ -4,10 +4,11 @@ import {useSelector} from 'react-redux';
 
 import ProductItem from '../../components/shop/ProductItem';
 
-const ProductsOverviewScreen = (props) => {
+const ProductsOverviewScreen = ({navigation}) => {
   const products = useSelector((state) => state.products.availableProducts);
   const onViewDetail = (item) => {
     console.log('View Detail ', item);
+    navigation.navigate('ProductDetailScreen');
   };
 
   const onAddToCart = (item) => {
@@ -25,6 +26,7 @@ const ProductsOverviewScreen = (props) => {
             price={itemData.item.price}
             onViewDetail={() => onViewDetail(itemData.item)}
             onAddToCart={() => onAddToCart(itemData.item)}
+            dog={'meow'}
           />
         )}
       />

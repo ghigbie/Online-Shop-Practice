@@ -2,25 +2,16 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, Button, Dimensions} from 'react-native';
 import Colors from '../../constants/Colors';
 
-const ProductItem = ({title, price, image, onViewDetail, onAddToCart}) => (
+const ProductDetailScreen = ({
+  title,
+  price,
+  image,
+  onViewDetail,
+  onAddToCart,
+  ...props
+}) => (
   <View style={styles.container}>
-    <Image style={styles.image} source={{uri: image}} />
-    <View style={styles.details}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.price}>${price.toFixed(2)}</Text>
-    </View>
-    <View style={styles.buttonRow}>
-      <Button
-        color={Colors.primary}
-        title="View Details"
-        onPress={onViewDetail}
-      />
-      <Button
-        color={Colors.primary}
-        title="Add to Cart"
-        onPress={onAddToCart}
-      />
-    </View>
+    <Text>Product details</Text>
   </View>
 );
 
@@ -62,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProductItem;
+export default ProductDetailScreen;
